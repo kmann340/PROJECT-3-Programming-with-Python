@@ -8,8 +8,8 @@ localcopy = 'accesslog.log'
 
 import requests
 url = 'https://s3.amazonaws.com/tcmg476/http_access_log'
-r = requests.get('https://s3.amazonaws.com/tcmg476/http_access_log', stream = True)
-with open('python.txt','wb') as textfile:
+Req = requests.get('https://s3.amazonaws.com/tcmg476/http_access_log', stream = True)
+with open('thisishard.txt','wb') as textfile:
   for chunk in r.iter_content(chunk_size=1024):
     if chunk:
       textfile.write(chunk)
@@ -25,7 +25,7 @@ result ={
 'least_requested_file':[0,[]]
 }
 
-file = open('python.txt')
+file = open('thisishard.txt')
 
 date_day = None
 days = 0
@@ -73,8 +73,8 @@ for line in file:
   
 max=result[“filewise_request_frequency”][“index.html”]
 min=result[“filewise_request_frequency”][“index.html”]
-maxlist=[“index.html”]
-minlist=[“index.html”]
+max_in_list=[“index.html”]
+min_in_list=[“index.html”]
 for i in result[“filewise_request_frequency”]:
   if result[“filewise_request_frequency”][i] > max:
      max = result[“filewise_request_frequency”][i]
